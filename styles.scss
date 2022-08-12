@@ -36,7 +36,7 @@ body {
   background-color: var(--color-skin);
   z-index: 99;
 
-  &__white {
+  &__container {
     background-color: white;
     border: 7px solid black;
     width: 65%;
@@ -44,75 +44,75 @@ body {
     border-radius: 50%;
     overflow: hidden;
     position: absolute;
-  }
 
-  &__blue {
-    border: 6px solid black;
-    width: 80%;
-    height: 70%;
-    border-radius: 50%;
-    background-color: var(--color-eye);
-    position: absolute;
-  }
+    & > * {
+      border-radius: 50%;
+      position: absolute;
+    }
 
-  &__black {
-    background-color: black;
-    width: 60%;
-    height: 50%;
-    border-radius: 50%;
-    position: absolute;
-  }
+    &--blue {
+      border: 6px solid black;
+      width: 80%;
+      height: 70%;
 
-  &__white-small {
-    background-color: white;
-    width: 20%;
-    height: 20%;
-    border-radius: 50%;
-    position: absolute;
+      background-color: var(--color-eye);
+    }
+
+    &--black {
+      background-color: black;
+      width: 60%;
+      height: 50%;
+    }
+
+    &--white-small {
+      background-color: white;
+      width: 20%;
+      height: 20%;
+    }
   }
 }
 
 .left-eye {
-  &__white {
+  &__container {
     left: 25px;
     top: 25px;
-  }
 
-  &__blue {
-    left: 25px;
-    top: 15px;
-  }
+    &--blue {
+      left: 25px;
+      top: 15px;
+    }
 
-  &__black {
-    left: 50px;
-    top: 40px;
-  }
+    &--black {
+      left: 50px;
+      top: 40px;
+    }
 
-  &__white-small {
-    left: 65px;
-    top: 55px;
+    &--white-small {
+      left: 65px;
+      top: 55px;
+    }
   }
 }
 
 .right-eye {
-  &__white {
+  &__container {
     right: 25px;
     top: 25px;
-  }
 
-  &__blue {
-    right: 25px;
-    top: 15px;
-  }
+    &--blue {
+      right: 25px;
+      top: 15px;
+    }
 
-  &__black {
-    right: 50px;
-    top: 40px;
-  }
+    &--black {
+      right: 50px;
+      top: 40px;
+    }
 
-  &__white-small {
-    right: 65px;
-    top: 55px;
+    &--white-small {
+      right: 65px;
+      top: 55px;
+    }
   }
 }
 .left-eyebrow,
@@ -140,13 +140,7 @@ body {
   margin-top: -65px;
   z-index: 98;
 
-  &__part1,
-  &__part2,
-  &__part3,
-  &__part4,
-  &__part5,
-  &__part6,
-  &__part7 {
+  & > * {
     background-color: black;
     border-radius: 50%;
   }
@@ -155,12 +149,14 @@ body {
   &__part7 {
     width: 80px;
     height: 100px;
+    margin-top: -80px;
   }
 
   &__part2,
   &__part6 {
     width: 80px;
     height: 100px;
+    margin-top: -35px;
   }
 
   &__part3,
@@ -171,13 +167,11 @@ body {
 
   &__part1 {
     margin-right: -50px;
-    margin-top: -80px;
     transform: rotate(50deg);
   }
 
   &__part2 {
     margin-right: -30px;
-    margin-top: -35px;
     transform: rotate(40deg);
   }
 
@@ -185,10 +179,8 @@ body {
     margin-right: -25px;
   }
   &__part4 {
-    background-color: black;
     width: 30px;
     height: 20px;
-    border-radius: 50%;
     margin-top: 65px;
   }
   &__part5 {
@@ -197,13 +189,11 @@ body {
 
   &__part6 {
     margin-left: -30px;
-    margin-top: -35px;
     transform: rotate(-40deg);
   }
 
   &__part7 {
     margin-left: -50px;
-    margin-top: -80px;
     transform: rotate(-50deg);
   }
 }
