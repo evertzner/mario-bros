@@ -10,6 +10,7 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: var(--color-skin);
+  position: relative;
 }
 
 .nose {
@@ -22,6 +23,7 @@ body {
   position: relative;
   margin-top: -95px;
 }
+
 .eyes {
   display: flex;
   gap: 60px;
@@ -44,6 +46,19 @@ body {
     border-radius: 50%;
     overflow: hidden;
     position: absolute;
+    isolation: isolate;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      //transform: translateY(-100%);
+      animation: openCloseEyes infinite alternate 5s linear;
+
+      background-color: var(--color-skin);
+    }
 
     & > * {
       border-radius: 50%;
@@ -115,6 +130,18 @@ body {
     }
   }
 }
+
+@keyframes openCloseEyes {
+  2%,
+  98% {
+    transform: translateY(-100%);
+  }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .left-eyebrow,
 .right-eyebrow {
   background-color: black;
@@ -195,5 +222,74 @@ body {
   &__part7 {
     margin-left: -50px;
     transform: rotate(-50deg);
+  }
+}
+
+.mouth {
+  margin-top: -90px;
+  border-radius: 50%;
+  background-color: black;
+  border: 6px solid black;
+  width: 110px;
+  height: 150px;
+  z-index: 97;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+
+  &__teeth {
+    width: 130px;
+    height: 100px;
+    background-color: white;
+    border-radius: 0 0 50% 50%;
+    margin-top: 55px;
+  }
+
+  &__tongue {
+    background-color: var(--color-red);
+    width: 80px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 10px;
+  }
+}
+
+.chin {
+  //background-color: var(--color-red);
+  width: 240px;
+  height: 300px;
+  margin-top: -290px;
+  border: 16px solid black;
+  border-color: transparent transparent black transparent;
+  border-radius: 0 0 50% 50%;
+  z-index: 96;
+}
+
+.cheeks {
+  display: flex;
+  top: 86px;
+  z-index: 96;
+  position: absolute;
+
+  .left-cheek,
+  .right-cheek {
+    //background-color: var(--color-red);
+    border-bottom: 16px solid transparent;
+    border-top: 16px solid transparent;
+    width: 378px;
+    height: 300px;
+  }
+  .left-cheek {
+    border-left: 16px solid black;
+    border-radius: 50% 0 0 50%;
+    margin-right: -167px;
+    transform: rotate(-35deg);
+  }
+  .right-cheek {
+    border-right: 16px solid black;
+    border-radius: 0 50% 50% 0;
+    margin-left: -167px;
+    transform: rotate(35deg);
   }
 }
